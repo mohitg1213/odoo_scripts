@@ -1,4 +1,4 @@
-# Some usefull bash scripts
+# Some usefull bash scripts for ODOO
 
 1) db_dump.sh
 
