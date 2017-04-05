@@ -9,4 +9,4 @@ BLOG - http://webkul.com/blog/openerp-db-backup-automatically
 
 2) odoo-server
 
-Using this script, we can start/stop/restart & even check status of ODOO server.
+Using this script, we can start/stop/restart & even check status of any ODOO server.
