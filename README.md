@@ -28,7 +28,7 @@ or
 
 /etc/scripts/./oe_install.sh
 
-2) odoo_server.sh
+3) odoo_server.sh
 
 We can use this script to start/stop odoo daemon service, check status of running/stopped odoo server, forcely restart odoo server.
 Steps -
