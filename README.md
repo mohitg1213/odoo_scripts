@@ -14,11 +14,9 @@ For more details, check this blog :
 - You need to run this script with sudoer account only (i.e root), so copy this script to some path like /etc/scripts
 - Give root ownership and 700 permisiion to this file.
 - Execute this file as -
-``` ./oe_install.sh 
-```
+``` ./oe_install.sh ``` 
 or
-``` /etc/scripts/./oe_install.sh 
-```
+``` /etc/scripts/./oe_install.sh ```
 
 3) odoo_server.sh :sparkles: :sparkles: :sparkles:
 
