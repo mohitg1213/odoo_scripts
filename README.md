@@ -9,12 +9,12 @@ BLOG - http://webkul.com/blog/openerp-db-backup-automatically
 
 2) oe_install.sh :sparkles:
 
-> This script enable us to install openerp (version 7) on Ubuntu with an one command line only. We need to just answer some    > few needed questions after running this script , all remaining work will be done by this script all alone.
+> This script enable us to install openerp (version 7) on Ubuntu with an one command line only. We need to just answer some  few needed questions after running this script , all remaining work will be done by this script all alone.
 > Using this script, we can also install other Openerp instance also on the same server but with different ports.
 
 BLOG - http://webkul.com/blog/install-openerp-on-ubuntu
 
-Steps -
+**Steps** -
 - You need to run this script with sudoer account only (i.e root), so copy this script to some path like /etc/scripts
 - Give root ownership and 700 permisiion to this file.
 - Execute this file as -
@@ -30,7 +30,7 @@ or
 
 > Use this script to start/stop odoo daemon service, check status of running/stopped odoo server, forcely restart odoo        > server.
 
-Steps -
+**Steps** -
 - Download and put this script file on path : /etc/init.d
 - Verify & Update(if needed) some fixed parameters inside this script file like: DAEMON, CONFIGFILE, PIDFILE
 - Change permission & onwership of this file as:
@@ -40,7 +40,7 @@ Steps -
 ```
 - Usage: /etc/init.d/odoo-server {start|stop|restart/reload|status|force-restart|force-stop}
 
-TIPS: 
+**TIPS**: 
 - [x] Using 'status', we can find information of all runnning odoo daemon servers.
 - [x] Using 'force-stop/force-restart', we can kill all running odoo daemon forcefully, and can start fresh odoo-server daemon.
 - [x] start/stop will not allow more than one process per daemon.
