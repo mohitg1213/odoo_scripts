@@ -16,11 +16,9 @@ Using this script, we can also install other Openerp instance also on the same s
 
 Steps -
 
-1) You need to run this script with sudoer account only (i.e root), so copy this script to some path like /etc/scripts
-
-2) Give root ownership and 700 permisiion to this file.
-
-3) Execute this file as -
+a) You need to run this script with sudoer account only (i.e root), so copy this script to some path like /etc/scripts
+b) Give root ownership and 700 permisiion to this file.
+c) Execute this file as -
 
 ./oe_install.sh 
 
@@ -32,12 +30,12 @@ or
 
 We can use this script to start/stop odoo daemon service, check status of running/stopped odoo server, forcely restart odoo server.
 Steps -
-1) Download and put this script file on path : /etc/init.d
-2) Verify & Update(if needed) some fixed parameters inside this script file like: DAEMON, CONFIGFILE, PIDFILE
-3) Change permission & onwership of this file as:
+a) Download and put this script file on path : /etc/init.d
+b) Verify & Update(if needed) some fixed parameters inside this script file like: DAEMON, CONFIGFILE, PIDFILE
+c) Change permission & onwership of this file as:
 sudo chmod 755 /etc/init.d/odoo-server
 sudo chown root: /etc/init.d/odoo-server
-4) Usage: /etc/init.d/odoo-server {start|stop|restart/reload|status|force-restart|force-stop}
+d) Usage: /etc/init.d/odoo-server {start|stop|restart/reload|status|force-restart|force-stop}
 
 TIPS: 
 - Using 'status', we can find information of all runnning odoo daemon servers.
