@@ -46,6 +46,10 @@ if ! [ -r $CONFIGFILE ] ; then
 	display 1 "Config File is not set to readable." 
 	exit 0;
 fi
+if ! [ -f $PIDFILE ] ; then
+	touch $PIDFILE
+	chown $USER: $PIDFILE
+fi
 
 
 display() {
@@ -83,7 +87,7 @@ do_start() {
 	if [ $procs -eq 0 ] ; then
 				start-stop-daemon --start --quiet --pidfile ${PIDFILE} \
 			            --chuid ${USER} --background --make-pidfile \
-			            --exec ${DAEMON} -- ${DAEMON_OPTS}
+			            --exec ${DAEMON} -- ${DAEMON_ARGS}
 			return $?
 	else
 		detailed_info "${DESC} is already Running !!!" $procs
@@ -117,13 +121,11 @@ check_status() {
     return $status
 }
 
-# Function that forcely-restarts the daemon/service
-force_restart() {
+# Function that forcely-stops all running daemon/service
+force_stop() {
 	echo $1
 	pids=$(ps -Ao pid,cmd | grep $DAEMON | grep -v grep | awk '{print $1}')
 	kill -9 $pids
-	sleep 1
-	do_start "Starting ${DESC} "
 	return $?
 }
 
@@ -164,8 +166,8 @@ case "$1" in
 				procs=$?
 				if [ $procs -eq 1 ] ; then
 					detailed_info "RUNNING" $procs
-				elif [ $? -eq 0 ] ; then
-					display 0 "STOPPED"
+				elif [ $procs -eq 0 ] ; then
+					display 1 "STOPPED"
 				else
 					detailed_info "" $procs
 				fi
@@ -178,13 +180,19 @@ case "$1" in
 				display $?
 				;;
 		force-restart)
-				force_restart "Forcely Restarting ${DESC} "
+				force_stop "Forcely Restarting ${DESC} "
+				sleep 1
+				do_start "Starting ${DESC} "
+				display $?
+				;;
+		force-stop)
+				force_stop "Forcely Stopping all running ${DESC} "
 				display $?
 				;;
 		*)
-				display 1 "Usage: $0 {start|stop|restart|reload|status}"
-                exit 1
-                ;;
+				display 1 "Usage: $0 {start|stop|restart/reload|status|force-restart|force-stop}"
+				exit 1
+				;;
 esac
 
 exit 0
