@@ -9,10 +9,10 @@ BLOG - http://webkul.com/blog/openerp-db-backup-automatically
 
 2) oe_install.sh :sparkles:
 
-BLOG - http://webkul.com/blog/install-openerp-on-ubuntu
-
 > This script enable us to install openerp (version 7) on Ubuntu with an one command line only. We need to just answer some    > few needed questions after running this script , all remaining work will be done by this script all alone.
 > Using this script, we can also install other Openerp instance also on the same server but with different ports.
+
+BLOG - http://webkul.com/blog/install-openerp-on-ubuntu
 
 Steps -
 - You need to run this script with sudoer account only (i.e root), so copy this script to some path like /etc/scripts
