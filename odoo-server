@@ -46,8 +46,8 @@ if ! [ -r $CONFIGFILE ] ; then
 	display 1 "Config File is not set to readable." 
 	exit 0;
 fi
-if ! [ -f $PIDFILE ] ; then
-	touch $PIDFILE
+if ! [ -w $PIDFILE ] ; then
+	touch $PIDFILE || echo "Permission issue: $PIDFILE" && exit 1
 	chown $USER: $PIDFILE
 fi
 
@@ -125,7 +125,9 @@ check_status() {
 force_stop() {
 	echo $1
 	pids=$(ps -Ao pid,cmd | grep $DAEMON | grep -v grep | awk '{print $1}')
-	kill -9 $pids
+	if [ ! -z "$pids" ] ; then
+		kill -9 $pids
+	fi
 	return $?
 }
 
