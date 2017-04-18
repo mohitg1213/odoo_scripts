@@ -191,6 +191,9 @@ case "$1" in
 				force_stop "Forcely Stopping all running ${DESC} "
 				display $?
 				;;
+		cs)
+				ps -Ao pid,cmd | grep $DAEMON | grep -v grep | awk '{print $1}' | wc -l
+				;;
 		*)
 				display 1 "Usage: $0 {start|stop|restart/reload|status|force-restart|force-stop}"
 				exit 1
