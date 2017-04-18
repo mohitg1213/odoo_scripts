@@ -38,6 +38,7 @@ Steps -
 sudo chmod 755 /etc/init.d/odoo-server
 sudo chown root: /etc/init.d/odoo-server
 4) Usage: /etc/init.d/odoo-server {start|stop|restart/reload|status|force-restart|force-stop}
+
 TIPS: 
 - Using 'status', we can find information of all runnning odoo daemon servers.
 - Using 'force-stop/force-restart', we can kill all running odoo daemon forcefully, and can start fresh odoo-server daemon.
