@@ -5,15 +5,15 @@
 ############## +-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+ +-+-+-+-+ ##########
 #############################################################################
 ########################## BEGIN INIT INFO ##################################
-### Short-Name		:	Odoo start/stop script for Ubuntu				  ### 				 	
-### Author			:	Mohit Chandra(mohit@webkul.com)					  ### 
-### Owner			:	Webkul Software Pvt. Ltd. (<https://webkul.com/>) ### 
-### Website			:	https://odoo.com								  ### 
-### Description		:	Using this script, we can start/stop/restart	  ### 
-###						or check status of odoo server.					  ### 
-###																		  ### 
-### Copyright(c)-2015-Present Webkul Software Pvt. Ltd.					  ### 
-### All Rights Reserved.												  ###  
+### Short-Name		: Odoo start/stop script for Ubuntu		  ### 				 	
+### Author		: Mohit Chandra(mohit@webkul.com)		  ### 
+### Owner		: Webkul Software Pvt. Ltd.(<https://webkul.com/>)### 
+### Website		: https://odoo.com				  ### 
+### Description		: Using this script, we can start/stop/restart	  ### 
+###			  or check status of odoo server.		  ### 
+###									  ### 
+### Copyright(c)-2015-Present Webkul Software Pvt. Ltd.			  ### 
+### All Rights Reserved.					          ###  
 ########################## END INIT INFO ####################################
 #############################################################################
 PATH=/bin:/sbin:/usr/bin
