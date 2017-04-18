@@ -28,3 +28,17 @@ or
 
 /etc/scripts/./oe_install.sh
 
+2) odoo_server.sh
+
+We can use this script to start/stop odoo daemon service, check status of running/stopped odoo server, forcely restart odoo server.
+Steps -
+1) Download and put this script file on path : /etc/init.d
+2) Verify & Update(if needed) some fixed parameters inside this script file like: DAEMON, CONFIGFILE, PIDFILE
+3) Change permission & onwership of this file as:
+sudo chmod 755 /etc/init.d/odoo-server
+sudo chown root: /etc/init.d/odoo-server
+4) Usage: /etc/init.d/odoo-server {start|stop|restart/reload|status|force-restart|force-stop}
+TIPS: 
+- Using 'status', we can find information of all runnning odoo daemon servers.
+- Using 'force-stop/force-restart', we can kill all running odoo daemon forcefully, and can start fresh odoo-server daemon.
+- start/stop will not allow more than one process per daemon.
