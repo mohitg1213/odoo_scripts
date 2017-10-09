@@ -23,7 +23,7 @@ DESC=ODOO-SERVER
 # (Default for ODOO >=10: /opt/odoo/odoo-bin)
 # (Default for ODOO  <=9: /opt/odoo/openerp-server)
 DAEMON=/opt/odoo/odoo-bin
-CONFIGFILE="/etc/odoo.conf" # Specify the Odoo Configuration file path.
+CONFIGFILE="/etc/odoo-server.conf" # Specify the Odoo Configuration file path.
 
 USER=odoo # Specify the user name (Default: odoo).
 
@@ -31,26 +31,6 @@ PIDFILE=/var/run/$NAME.pid # pidfile
 
 # Additional options that are passed to the Daemon.
 DAEMON_ARGS="-c $CONFIGFILE"
-
-if ! [ -x $DAEMON ] ; then
-	echo "Error in ODOO Daemon file: $DAEMON" 
-	echo "Possible error(s):"
-	display 1 "Daemon File doesn't exists." 
-	display 1 "Daemon File is not set to executable."  
-	exit 0;
-fi
-if ! [ -r $CONFIGFILE ] ; then
-	echo "Error in ODOO Config file: $CONFIGFILE" 
-	echo "Possible error(s):" 
-	display 1 "Config File doesn't exists." 
-	display 1 "Config File is not set to readable." 
-	exit 0;
-fi
-if ! [ -w $PIDFILE ] ; then
-	touch $PIDFILE || echo "Permission issue: $PIDFILE" && exit 1
-	chown $USER: $PIDFILE
-fi
-
 
 display() {
 	RED=$(tput setaf 1)
@@ -78,6 +58,25 @@ case "$#" in
             ;;
 esac
 }
+
+if ! [ -x $DAEMON ] ; then
+	echo "Error in ODOO Daemon file: $DAEMON" 
+	echo "Possible error(s):"
+	display 1 "Daemon File doesn't exists." 
+	display 1 "Daemon File is not set to executable."  
+	exit 0;
+fi
+if ! [ -r $CONFIGFILE ] ; then
+	echo "Error in ODOO Config file: $CONFIGFILE" 
+	echo "Possible error(s):" 
+	display 1 "Config File doesn't exists." 
+	display 1 "Config File is not set to readable." 
+	exit 0;
+fi
+if ! [ -w $PIDFILE ] ; then
+	touch $PIDFILE || echo "Permission issue: $PIDFILE" && exit 1
+	chown $USER: $PIDFILE
+fi
 
 # Function that starts the daemon/service
 do_start() {
